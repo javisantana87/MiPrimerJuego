@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Órbita</string>
+    <string name="title_activity_main">Órbita</string>
+    <string name="package_name">com.javisantana.orbita</string>
+    <string name="custom_url_scheme">com.javisantana.orbita</string>
+</resources>

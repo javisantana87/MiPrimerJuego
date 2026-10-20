@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0820">
+  <meta name="description" content="Órbita: salta de planeta en planeta, recoge estrellas y escapa del vacío. ¿Hasta dónde llegarás?">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Órbita</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <canvas id="game"></canvas>
+
+    <!-- HUD -->
+    <div id="hud" class="hidden">
+      <div class="hud-stars"><span class="star-icon">★</span> <span id="hud-stars">0</span></div>
+      <div id="hud-score">0</div>
+      <button id="btn-pause" class="icon-btn" aria-label="Pausa">❚❚</button>
+    </div>
+    <div id="hint" class="hidden">Toca para saltar</div>
+
+    <!-- Menú principal -->
+    <div id="menu" class="screen">
+      <h1 class="title">ÓRBITA</h1>
+      <p class="subtitle">Salta entre planetas. No caigas al vacío.</p>
+      <div class="stats-row">
+        <div class="stat"><div class="stat-label">Récord</div><div class="stat-value" id="menu-best">0</div></div>
+        <div class="stat"><div class="stat-label">Estrellas</div><div class="stat-value"><span class="star-icon">★</span> <span id="menu-stars">0</span></div></div>
+      </div>
+      <button id="btn-play" class="btn btn-primary">JUGAR</button>
+      <button id="btn-skins" class="btn">COMETAS</button>
+      <div class="toggles">
+        <button id="btn-sound" class="icon-btn" aria-label="Sonido">🔊</button>
+        <button id="btn-vibe" class="icon-btn" aria-label="Vibración">📳</button>
+        <button id="btn-help" class="icon-btn" aria-label="Cómo jugar">?</button>
+      </div>
+    </div>
+
+    <!-- Cómo jugar -->
+    <div id="help" class="screen hidden">
+      <h2>Cómo jugar</h2>
+      <ul class="help-list">
+        <li>👆 <b>Toca</b> la pantalla para salir disparado de la órbita.</li>
+        <li>🪐 Entra en la órbita de otro planeta para engancharte.</li>
+        <li>🎯 Apunta al <b>centro</b> del planeta para un <b>¡PERFECTO!</b> y encadena combos.</li>
+        <li>★ Recoge estrellas para desbloquear nuevos cometas.</li>
+        <li>☄️ Esquiva los asteroides.</li>
+        <li>🌀 El vacío sube sin parar… ¡no te entretengas!</li>
+      </ul>
+      <button class="btn btn-primary" data-back>ENTENDIDO</button>
+    </div>
+
+    <!-- Tienda de cometas -->
+    <div id="skins" class="screen hidden">
+      <h2>Cometas</h2>
+      <p class="subtitle"><span class="star-icon">★</span> <span id="skins-stars">0</span></p>
+      <div id="skins-grid"></div>
+      <button class="btn" data-back>VOLVER</button>
+    </div>
+
+    <!-- Pausa -->
+    <div id="pause" class="screen hidden">
+      <h2>Pausa</h2>
+      <button id="btn-resume" class="btn btn-primary">CONTINUAR</button>
+      <button id="btn-quit" class="btn">MENÚ</button>
+    </div>
+
+    <!-- Fin de partida -->
+    <div id="over" class="screen hidden">
+      <h2 id="over-title">¡Perdido en el espacio!</h2>
+      <div id="over-record" class="record hidden">¡NUEVO RÉCORD!</div>
+      <div class="big-score" id="over-score">0</div>
+      <div class="stats-row">
+        <div class="stat"><div class="stat-label">Récord</div><div class="stat-value" id="over-best">0</div></div>
+        <div class="stat"><div class="stat-label">Estrellas</div><div class="stat-value"><span class="star-icon">★</span> +<span id="over-stars">0</span></div></div>
+      </div>
+      <button id="btn-retry" class="btn btn-primary">OTRA VEZ</button>
+      <button id="btn-menu" class="btn">MENÚ</button>
+    </div>
+
+    <div id="toast" class="hidden"></div>
+  </div>
+
+  <script src="game.js"></script>
+  <script>
+    if ('serviceWorker' in navigator && location.protocol.startsWith('http') && !window.Capacitor) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+    }
+  </script>
+</body>
+</html>

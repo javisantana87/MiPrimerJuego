@@ -1,0 +1,11 @@
+node_modules/
+.DS_Store
+*.log
+# Android (generado por Capacitor)
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/.idea/
+*.keystore
+*.jks

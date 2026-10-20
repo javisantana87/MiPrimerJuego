@@ -1,0 +1,9 @@
+{
+  "appId": "com.javisantana.orbita",
+  "appName": "Órbita",
+  "webDir": "www",
+  "backgroundColor": "#0b0820",
+  "android": {
+    "backgroundColor": "#0b0820"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "orbita",
+  "version": "1.0.0",
+  "description": "Órbita: juego arcade de un toque para web y Android",
+  "private": true,
+  "scripts": {
+    "start": "http-server www -p 8080 -c-1",
+    "icons": "node tools/gen-icons.js",
+    "assets": "capacitor-assets generate --android",
+    "android:add": "cap add android",
+    "android:sync": "cap sync android",
+    "android:open": "cap open android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.4.0",
+    "@capacitor/app": "^7.0.1",
+    "@capacitor/core": "^7.4.0"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^7.4.0",
+    "http-server": "^14.1.1"
+  }
+}
