@@ -658,6 +658,7 @@
     $('btn-sound').classList.toggle('off', !save.sound);
     $('btn-sound').textContent = save.sound ? '🔊' : '🔈';
     $('btn-vibe').classList.toggle('off', !save.vibe);
+    $('btn-vibe').classList.toggle('hidden', !navigator.vibrate); // iPhone no soporta vibración web
   }
   let toastTimer = null;
   function toast(msg) {
